@@ -1,6 +1,5 @@
 var selectedRow = null;
 
-// Show Alerts
 function showAlert(message, className) {
     const existingAlert = document.querySelector(".alert");
     if (existingAlert) {
@@ -21,24 +20,22 @@ function showAlert(message, className) {
         }
     }, 3000);
 }
-
-// Clear All Fields
 function clearFields() {
     document.querySelector("#firstName").value = "";
     document.querySelector("#lastName").value = "";
     document.querySelector("#rollNo").value = "";
 }
 
-// Add Data
+
 document.querySelector("#student-form").addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // Get Form Values
+   
     const firstName = document.querySelector("#firstName").value.trim();
     const lastName = document.querySelector("#lastName").value.trim();
     const rollNo = document.querySelector("#rollNo").value.trim();
 
-    // Validate
+    
     if (firstName === "" || lastName === "" || rollNo === "") {
         showAlert("Please fill in all fields", "danger");
     } else {
@@ -71,7 +68,7 @@ document.querySelector("#student-form").addEventListener("submit", (e) => {
     }
 });
 
-// Handle Edit and Delete Actions
+ 
 document.querySelector("#student-list").addEventListener("click", (e) => {
     let target = e.target;
 
@@ -86,7 +83,7 @@ document.querySelector("#student-list").addEventListener("click", (e) => {
         target.parentElement.parentElement.remove();
         showAlert("Student Data Deleted", "danger");
 
-        // Reset selectedRow if the deleted row was being edited
+         
         if (selectedRow === target.parentElement.parentElement) {
             selectedRow = null;
         }
